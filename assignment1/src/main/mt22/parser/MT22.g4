@@ -150,6 +150,7 @@ COMMA: ',';
 COLON: ':';
 SEMICOLON: ';';
 EQUAL: '=';
+DOT: '.';
 
 OPENCMT: '/*' .*? '*/' -> skip;
 LINECMT: '//' (~[\n\r])* -> skip;
@@ -171,7 +172,6 @@ LSQB: '[';
 RSQB: ']';
 LCB: '{';
 RCB: '}';
-CB: '{}';
 
 BOOLTYPE: 'boolean';
 INTTYPE: 'integer';
@@ -184,8 +184,8 @@ ARRAYTYPE: 'array';
 fragment NONZERODIGIT: [1-9];
 INTLIT: '0'|NONZERODIGIT DIGIT* ('_' DIGIT|DIGIT)*{self.text = self.text.replace('_','')};
 
-fragment DECIMAL: '.' DIGIT+;
-fragment EXP: [eE] [+-]? DIGIT;
+fragment DECIMAL: DOT DIGIT*;
+fragment EXP: [eE] [+-]? DIGIT+;
 FLOATLIT: INTLIT DECIMAL EXP {self.text = self.text.replace('_','')}
 		| INTLIT DECIMAL {self.text = self.text.replace('_','')}
 		| INTLIT EXP {self.text = self.text.replace('_','')}
@@ -195,8 +195,7 @@ fragment TRUE: 'true';
 fragment FALSE: 'false';
 BOOLEANLIT: TRUE | FALSE;
 
-DOUBLEQUOTE: '"';
-STRINGLIT: DOUBLEQUOTE ((~'"')|'\\'[tbfrn'"]|'\\\\')* DOUBLEQUOTE {self.text = self.text[1:-1];} ;
+STRINGLIT: '"' (~["\\]|'\\'[tbfrn'"\\])* '"' {self.text = self.text[1:-1];};
 
 fragment LETTER: [A-Za-z];
 fragment DIGIT: [0-9];
@@ -205,6 +204,16 @@ ID: (LETTER|UNDERSCORE) (LETTER|UNDERSCORE|DIGIT)*;
 
 WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines
 
-ERROR_CHAR: .;
-UNCLOSE_STRING: .;
-ILLEGAL_ESCAPE: .;
+UNCLOSE_STRING: '"' (~["\\]|'\\'[tbfrn'"\\])* {
+	self.text = self.text[1:];
+	raise UncloseString(self.text)
+};
+
+ILLEGAL_ESCAPE: '"' (~["\\]|'\\'[tbfrn'"\\])*('\\'~[tbfrn'"\\]){
+	self.text = self.text[1:];
+	raise IllegalEscape(self.text)
+};
+
+ERROR_CHAR: . {
+	raise ErrorToken(self.text)
+};

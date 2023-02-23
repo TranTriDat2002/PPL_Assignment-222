@@ -1,0 +1,1 @@
+This string contain carriage return\r,<EOF>

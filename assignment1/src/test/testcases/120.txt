@@ -1,0 +1,2 @@
+a = 5;// This code is inside a comment block*/
+b=10;//This is another comment

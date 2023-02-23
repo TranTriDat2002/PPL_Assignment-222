@@ -1,0 +1,5 @@
+grammar ComplexLexicalTest;
+expression: INT PLUS INT;
+INT: DIGIT+;
+fragment DIGIT: [0-9];
+PLUS: '+';
