@@ -71,7 +71,9 @@ signexpr: MINUSOP signexpr | indexopexpr;
 indexopexpr: ID LSQB exprlist RSQB | operand;
 
 // Operand //
-operand: const | var | funccall | arraylit;
+operand: const | var | funccall | arraylit | bracket;
+
+bracket: LB expr RB;
 
 const: INTLIT | FLOATLIT | STRINGLIT | BOOLEANLIT;
 var: ID;
@@ -113,7 +115,7 @@ forstmt: 'for' LB ID EQUAL expr COMMA expr COMMA expr RB stmt;
 whilestmt: 'while' LB expr RB stmt;
 
 // Do-while statement //
-dowhilestmt: 'do' blockstmt 'while' LB expr RB;	
+dowhilestmt: 'do' stmt 'while' LB expr RB;	
 
 // Break statement //
 breakstmt: 'break';

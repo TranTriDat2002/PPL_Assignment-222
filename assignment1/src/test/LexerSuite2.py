@@ -205,7 +205,7 @@ class LexerSuite(unittest.TestCase):
         self.assertTrue(TestLexer.test(input, expect, 158))
 
     def test_LS159(self):
-        input = "\"x: integer = 65;\nfact: function integer (n:integer){\n if ( n == 0) return 1;\n else return n * fact(n-1);}\""
+        input = "x: integer = 65;\nfact: function integer (n:integer){\n if ( n == 0) return 1;\n else return n * fact(n-1);}"
         expect = "x,:,integer,=,65,;,fact,:,function,integer,(,n,:,integer,),{,if,(,n,==,0,),return,1,;,else,return,n,*,fact,(,n,-,1,),;,},<EOF>"
         self.assertTrue(TestLexer.test(input, expect, 159))
 

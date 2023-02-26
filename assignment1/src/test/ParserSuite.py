@@ -119,10 +119,6 @@ class ParserSuite(unittest.TestCase):
         expect = "Error on line 1 col 22: ,"
         self.assertTrue(TestParser.test(input, expect, 226))
     def test_vardecl_fullform_unequal_IDlist_exprlist_2(self):
-        input = """a,b,c:boolean = 123,1.2e3;"""
-        expect = "Error on line 1 col 25: ;"
-        self.assertTrue(TestParser.test(input, expect, 227))
-    def test_vardecl_fullform_unequal_IDlist_exprlist_2(self):
         input = """a,b,c:boolean = 123,1.2e3;a,c:boolean = 123,1.2e3;"""
         expect = "Error on line 1 col 25: ;"
         self.assertTrue(TestParser.test(input, expect, 227))
@@ -365,7 +361,7 @@ class ParserSuite(unittest.TestCase):
         expect = "successful"
         self.assertTrue(TestParser.test(input, expect, 273))
     def test_expr_complex(self):
-        input = """a:integer = a(1+1.2/3==1-!!!!true==abc*{abc,c}>func(123,e)<=func());"""
+        input = """a:integer = a(1+1.2/3==1-!!!!(true==abc)*{abc,c}>func(123,e)<=func());"""
         expect = "successful"
         self.assertTrue(TestParser.test(input, expect, 274))
     def test_expr_arraylit_test(self):
@@ -450,9 +446,9 @@ class ParserSuite(unittest.TestCase):
         input = """f : function integer () {do {}while (a::abc){};}"""
         expect = "Error on line 1 col 44: {"
         self.assertTrue(TestParser.test(input, expect, 288))
-    def test_stmt_do_while_invalid_blockstm(self):
+    def test_stmt_do_while_blockstm(self):
         input = """f:function integer () {do a=1; while (a::abc);}"""
-        expect = "Error on line 1 col 26: a"
+        expect = "successful"
         self.assertTrue(TestParser.test(input, expect, 289))
     def test_stmt_do_while_missing_expr(self):
         input = """f:function integer () {do {} while ();}"""

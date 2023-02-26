@@ -149,6 +149,11 @@ class MT22Visitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by MT22Parser#bracket.
+    def visitBracket(self, ctx:MT22Parser.BracketContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by MT22Parser#const.
     def visitConst(self, ctx:MT22Parser.ConstContext):
         return self.visitChildren(ctx)

@@ -1,1 +1,1 @@
-a:integer = a(1+1.2/3==1-!!!!true==abc*{abc,c}>func(123,e)<=func());
+a:integer = a(1+1.2/3==1-!!!!(true==abc)*{abc,c}>func(123,e)<=func());
