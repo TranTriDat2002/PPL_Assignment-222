@@ -1,0 +1,2 @@
+a:integer = {a,b,c}::"abc";
+                b:string = abc::1.2e-10;

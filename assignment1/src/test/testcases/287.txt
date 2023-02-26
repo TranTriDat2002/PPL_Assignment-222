@@ -1,0 +1,7 @@
+f : function integer () {
+                        do {
+                            do {}
+                            while (ab==cd);
+                        }
+                        while (a::abc);
+                }

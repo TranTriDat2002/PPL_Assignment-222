@@ -11,17 +11,23 @@ options{
 	language=Python3;
 }
 
-program: decls? EOF;
+program: decls EOF;
 decls: decl decls | decl;
 decl: vardecl | funcdecl;
 
 ////////// Declarations //////////
 
 // Variable declaration
-vardecl: (shortvardecl | fulvardecl | arraydecl) SEMICOLON;
+vardecl: (shortvardecl | fulvardecl) SEMICOLON;
 shortvardecl: idlist COLON vartype;
 fulvardecl: ID COLON vartype EQUAL expr | var COMMA fulvardecl COMMA expr;
-arraydecl: idlist COLON ARRAYTYPE LSQB INTLIT RSQB 'of' vartype;		
+
+arraydecl: ARRAYTYPE LSQB intlitlist RSQB 'of' eletype;
+eletype: atomictype;
+
+vartype: atomictype | AUTOTYPE |  arraydecl;
+
+intlitlist: INTLIT COMMA intlitlist | INTLIT;
 
 idlist: ID COMMA idlist | ID;
 exprlist: expr COMMA exprlist | expr; 
@@ -32,65 +38,70 @@ funcdecl: funcproto funcbody;
 funcproto: ID COLON FUNCKEYW returntype LB paralistdecl? RB (INHERIT ID)?;
 funcbody: blockstmt;
 
-returntype: vartype | VOIDTYPE | AUTOTYPE;
+returntype: atomictype | VOIDTYPE | AUTOTYPE | arraydecl;
 paralistdecl: paradecl COMMA paralistdecl | paradecl;
 paradecl: INHERIT? OUT? ID COLON vartype;
 
 
 ////////// EXPRESSIONS //////////
-expr: indexop | specialepxr;
-
-// Index operator //
-indexop: ID LSQB indexop COMMA sign RSQB | ID LSQB sign RSQB | sign;
-
-// Sign minus//
-sign: MINUSOP sign | MINUSOP logical_negate | logical_negate;
-
-// Logical negate//
-logical_negate: NEGATEOP logical_negate | NEGATEOP multiplying | multiplying; 
-
-// Multiplying //
-multiplying: multiplying (MULTIPLYOP|DIVIDEOP|MODULOOP) adding | adding;
-
-// Adding //
-adding: adding (PLUSOP|MINUSOP) logical_and_or | logical_and_or;
-
-// Logical and or //
-logical_and_or: logical_and_or (CONJUNCOP|DISJUNCOP) relational | relational;
-
-// Relational //
-relational: string RELATIONALOP string | string;
+expr: stringexpr;
 
 // String //
-string: operand STRINGCONCAT operand | operand;
+stringexpr: stringexpr STRINGCONCAT stringexpr | relationalexpr;
+
+// Relational //
+relationalexpr: relationalexpr RELATIONALOP logical_and_orexpr | logical_and_orexpr RELATIONALOP relationalexpr | logical_and_orexpr;
+
+// Logical and or //
+logical_and_orexpr: logical_and_orexpr (CONJUNCOP|DISJUNCOP) addingexpr | addingexpr;
+
+// Adding //
+addingexpr: addingexpr (PLUSOP|MINUSOP) multiplyingexpr | multiplyingexpr;
+
+// Multiplying //
+multiplyingexpr: multiplyingexpr (MULTIPLYOP|DIVIDEOP|MODULOOP) logical_negateexpr | logical_negateexpr;
+
+// Logical negate//
+logical_negateexpr: NEGATEOP logical_negateexpr | signexpr; 
+
+// Sign minus//
+signexpr: MINUSOP signexpr | indexopexpr;
+
+// Index operator //
+indexopexpr: ID LSQB exprlist RSQB | operand;
 
 // Operand //
-operand: const | var | funccall;
+operand: const | var | funccall | arraylit;
 
-const: INTLIT | FLOATLIT | STRINGLIT;
+const: INTLIT | FLOATLIT | STRINGLIT | BOOLEANLIT;
 var: ID;
 funccall: ID LB arglist? RB;
 arglist: arg COMMA arglist | arg;
 arg: expr;
 
-// Special expressions //
-specialepxr: readint | readfloat | readbool | readstring;
+////////// ARRAY LITERRAL //////////
+arraylit: LCB exprlist? RCB;
 
-readint: 'readInteger' LB RB;
-readfloat: 'readFloat' LB RB;
-readbool: 'readBoolean' LB RB;
-readstring: 'readString' LB RB;
+
+// Special expressions //
+// specialepxr: readint | readfloat | readbool | readstring;
+
+// readint: 'readInteger' LB RB;
+// readfloat: 'readFloat' LB RB;
+// readbool: 'readBoolean' LB RB;
+// readstring: 'readString' LB RB;
 
 
 ////////// STATEMENTS //////////
 
 stmt: assignstmt SEMICOLON | ifstmt | forstmt | whilestmt | dowhilestmt SEMICOLON | breakstmt SEMICOLON 
-	| continuestmt SEMICOLON | returnstmt SEMICOLON | callstmt SEMICOLON | specialstmt;
+	| continuestmt SEMICOLON | returnstmt SEMICOLON | callstmt SEMICOLON | blockstmt ;
 
 // Assign statment //
 assignstmt: lhs EQUAL expr;
 
 lhs: ID | indexop;
+indexop:ID LSQB exprlist RSQB;
 
 // If statement //
 ifstmt: 'if' LB expr RB stmt ('else' stmt)?;
@@ -111,7 +122,7 @@ breakstmt: 'break';
 continuestmt: 'continue';
 
 // Return statement //
-returnstmt: 'return' expr;
+returnstmt: 'return' expr?;
 
 // Call statement //
 callstmt: funccall;
@@ -122,22 +133,18 @@ blockstmt: LCB blockBody? RCB;
 blockBody: (stmt|vardecl) blockBody | (stmt|vardecl);
 
 // Special statements //
-specialstmt: (printint | writefloat | printbool | printstring | superfunc | preventdef) SEMICOLON;
+// specialstmt: (printint | writefloat | printbool | printstring | superfunc | preventdef) SEMICOLON;
 
-printint: 'printInteger' LB (ID|INTLIT) RB;
-writefloat: 'writeFloat' LB (ID|FLOATLIT) RB;
-printbool: 'printBoolean' LB (ID|BOOLEANLIT) RB;
-printstring: 'printString' LB (ID|STRINGLIT) RB;
-superfunc: 'super' LB exprlist RB;
-preventdef: 'preventDefault' LB RB;
+// printint: 'printInteger' LB (ID|INTLIT) RB;
+// writefloat: 'writeFloat' LB (ID|FLOATLIT) RB;
+// printbool: 'printBoolean' LB (ID|BOOLEANLIT) RB;
+// printstring: 'printString' LB (ID|STRINGLIT) RB;
+// superfunc: 'super' LB exprlist RB;
+// preventdef: 'preventDefault' LB RB;
 
 
 ////////// TYPES //////////
-vartype: BOOLTYPE | INTTYPE | FLOATTYPE | STRINGTYPE;
-
-
-////////// ARRAY!!! //////////
-array: LCB exprlist RCB;
+atomictype: BOOLTYPE | INTTYPE | FLOATTYPE | STRINGTYPE;
 
 ////////// TOKENS //////////
 
@@ -195,7 +202,7 @@ fragment TRUE: 'true';
 fragment FALSE: 'false';
 BOOLEANLIT: TRUE | FALSE;
 
-STRINGLIT: '"' (~["\\]|'\\'[tbfrn'"\\])* '"' {self.text = self.text[1:-1];};
+STRINGLIT: '"' (~[\n\r"\\]|'\\'[tbfrn'"\\])* '"' {self.text = self.text[1:-1];};
 
 fragment LETTER: [A-Za-z];
 fragment DIGIT: [0-9];
@@ -204,7 +211,7 @@ ID: (LETTER|UNDERSCORE) (LETTER|UNDERSCORE|DIGIT)*;
 
 WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines
 
-UNCLOSE_STRING: '"' (~["\\]|'\\'[tbfrn'"\\])* {
+UNCLOSE_STRING: '"' (~[\n\r"\\]|'\\'[tbfrn'"\\])* {
 	self.text = self.text[1:];
 	raise UncloseString(self.text)
 };

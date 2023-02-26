@@ -1,0 +1,1 @@
+a,a12__, A1, _: array [10,3,2] of integer = {a,"abc",true,1.3e19},{true},{},a(1,2,{123,2});

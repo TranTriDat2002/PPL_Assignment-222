@@ -1,1 +1,1 @@
-This string contain newline\n,<EOF>
+This string contain newline\n,,,Unclosed String: And contain invalid newline

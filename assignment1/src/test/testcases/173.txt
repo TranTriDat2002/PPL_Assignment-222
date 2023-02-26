@@ -1,1 +1,2 @@
-"This string contain newline\n"
+"This string contain newline\n", "And contain invalid newline
+and all this skipped"

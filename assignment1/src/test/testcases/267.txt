@@ -1,0 +1,1 @@
+a:integer = a(1,2,3); b:float = _("string",abc,a(2,3,4));

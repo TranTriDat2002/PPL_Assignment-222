@@ -1,0 +1,4 @@
+a : function array[1,2]of integer(){}
+                   b : function void(){}
+                   c : function auto(){}
+                

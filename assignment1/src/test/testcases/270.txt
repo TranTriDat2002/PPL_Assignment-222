@@ -1,0 +1,1 @@
+a:integer = !a||b&&!c&&abc(123); b:boolean = !!!!!!!!!!!!!true&&!!!!!!"abc";

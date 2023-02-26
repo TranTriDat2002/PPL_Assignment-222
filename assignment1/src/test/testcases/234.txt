@@ -1,0 +1,5 @@
+a : function integer(){}
+                   b : function float(){}
+                   c : function string(){}
+                   d : function boolean(){}
+                

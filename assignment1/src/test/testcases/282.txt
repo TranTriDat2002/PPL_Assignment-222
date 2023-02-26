@@ -1,0 +1,5 @@
+f : function integer () {
+                        for (i=1, i<10, i+1){
+                        for (abc=abc(123), i=="true", "abc"::1.3e2){}
+                        }
+                        }

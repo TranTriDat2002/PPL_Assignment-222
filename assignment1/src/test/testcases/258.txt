@@ -1,0 +1,2 @@
+a:integer = &&"abc";
+                b:boolean = abc||;

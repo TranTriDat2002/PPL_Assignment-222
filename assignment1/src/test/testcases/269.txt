@@ -1,0 +1,5 @@
+a:integer = a --{10} - func(1234,func(1)) -- 10;
+b:boolean = a--------10---10-10;
+a:integer = 1 * 2 - 3- - 4 / 5 % 6;
+b:boolean = 1*-2*-3*4/-2/3/4/5+-2+3+4+6%3%-2%3--1--3;
+c:array[1] of integer = -{a,b}*a--/a;

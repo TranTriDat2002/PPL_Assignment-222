@@ -1,0 +1,11 @@
+f : function integer () {
+                        return a==b;
+                        return abc[123];
+                        do {
+                            return true >= abc(123);
+                            a:integer = 1;
+                            return;
+                        }
+                        while (a::abc);
+                        return;
+                }

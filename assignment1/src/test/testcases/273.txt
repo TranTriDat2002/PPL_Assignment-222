@@ -1,0 +1,1 @@
+a:integer = a(a(a(a(a(a))))); b:float = a(abc,func[123],1+2+3,1.2e19+"true",1<=1<2,abc::a);

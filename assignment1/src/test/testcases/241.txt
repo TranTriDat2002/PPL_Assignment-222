@@ -1,0 +1,1 @@
+a: function float(out inherit c: string){}

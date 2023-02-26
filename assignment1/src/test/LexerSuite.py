@@ -172,7 +172,7 @@ class LexerSuite(unittest.TestCase):
     def test_string_literal_escape_carriage_return(self):
         self.assertTrue(TestLexer.test("\"This string contain carriage return\\r\"", "This string contain carriage return\\r,<EOF>", 172))
     def test_string_literal_escape_newline(self):
-        self.assertTrue(TestLexer.test("\"This string contain newline\\n\"", "This string contain newline\\n,<EOF>", 173))
+        self.assertTrue(TestLexer.test("\"This string contain newline\\n\", \"And contain invalid newline\nand all this skipped\"", "This string contain newline\\n,,,Unclosed String: And contain invalid newline", 173))
     def test_string_literal_escape_horizontal_tab(self):
         self.assertTrue(TestLexer.test("\"This string contain horizontal tab\\t\"", "This string contain horizontal tab\\t,<EOF>", 174))
     def test_string_literal_escape_single_quote(self):
@@ -228,4 +228,4 @@ class LexerSuite(unittest.TestCase):
     def test_complex_5(self):
         self.assertTrue(TestLexer.test("\"o[?%~U6a(YU1ki&uh3qM@Eon]D+_Z4wx{^H|\\2jF7*<#CgX)mS5yVR!t}#KdP^fL8b9cTspQ]B0z#N@O$vI&^AeG\"", "Illegal Escape In String: o[?%~U6a(YU1ki&uh3qM@Eon]D+_Z4wx{^H|\\2", 198))
     def test_complex_6(self):
-        self.assertTrue(TestLexer.test("\"!#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}~\"", "!#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}~,<EOF>", 199))
+        self.assertTrue(TestLexer.test("\"!#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}~\"", "!#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}~,<EOF>", 199))    

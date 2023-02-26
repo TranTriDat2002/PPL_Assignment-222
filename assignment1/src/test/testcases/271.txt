@@ -1,0 +1,1 @@
+a:integer = a==1!="abc"; b:boolean = a<=1<true>1.3e10>="true"!={ab,c}==func(123,"TRUE");

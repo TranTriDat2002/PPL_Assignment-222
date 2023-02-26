@@ -1,0 +1,2 @@
+b : function void(){}
+a : function double(){}

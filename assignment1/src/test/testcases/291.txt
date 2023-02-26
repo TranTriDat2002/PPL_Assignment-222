@@ -1,0 +1,7 @@
+f : function integer () {
+                        break;
+                        do {
+                            break;
+                        }
+                        while (a::abc);
+                }

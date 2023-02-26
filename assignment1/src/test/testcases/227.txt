@@ -1,0 +1,1 @@
+a,b,c:boolean = 123,1.2e3;a,c:boolean = 123,1.2e3;

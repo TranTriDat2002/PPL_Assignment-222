@@ -1,0 +1,1 @@
+a:boolean; b:integer; c:float; d: string; e: auto;

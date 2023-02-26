@@ -1,0 +1,5 @@
+a:integer = 1 + "abc";
+                b:boolean = 1.2e-10-10;
+                c:float = false*{1,"true",true};
+                d:string = 1_2/3_45;
+                e:array [2] of boolean = 22%abc123;
