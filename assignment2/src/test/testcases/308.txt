@@ -1,0 +1,1 @@
+a,b,c:integer;b,b,b,b:auto;c,abc,a123,_abs:string;d:auto;

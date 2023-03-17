@@ -1,0 +1,1 @@
+a,b,c:array[1]of integer;b,b,b:array[1,2]of float;c123:array[1,2,3]of string;d:array[4,1,3,4] of boolean;

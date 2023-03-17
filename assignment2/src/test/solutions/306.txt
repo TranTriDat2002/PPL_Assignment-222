@@ -1,0 +1,9 @@
+Program([
+	FuncDecl(main, VoidType, [], None, BlockStmt([]))
+	VarDecl(x, IntegerType)
+	VarDecl(x, IntegerType)
+	VarDecl(x, IntegerType)
+	FuncDecl(main, VoidType, [], None, BlockStmt([]))
+	FuncDecl(main, VoidType, [], None, BlockStmt([]))
+	VarDecl(x, IntegerType)
+])

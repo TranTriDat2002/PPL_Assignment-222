@@ -1,0 +1,1 @@
+a:function boolean(a:integer, b:float, c:string, d:boolean){}

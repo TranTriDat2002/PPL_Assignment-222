@@ -1,0 +1,3 @@
+Program([
+	FuncDecl(a, BooleanType, [Param(a, IntegerType), InheritParam(b, FloatType), OutParam(c, StringType), InheritOutParam(d, BooleanType)], None, BlockStmt([]))
+])

@@ -1,0 +1,1 @@
+a:array[999,1000] of string = {1,2,3};b,c:array[9] of boolean = {},1; 

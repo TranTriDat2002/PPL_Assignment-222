@@ -1,0 +1,12 @@
+Program([
+	VarDecl(a, IntegerType, UnExpr(-, Id(a)))
+	VarDecl(a, IntegerType, UnExpr(-, ArrayCell(a, [IntegerLit(1)])))
+	VarDecl(a, IntegerType, UnExpr(-, BinExpr(::, Id(a), IntegerLit(1))))
+	VarDecl(a, IntegerType, UnExpr(-, UnExpr(-, IntegerLit(1))))
+	VarDecl(a, IntegerType, UnExpr(-, IntegerLit(1)))
+	VarDecl(a, IntegerType, UnExpr(-, FloatLit(2.3)))
+	VarDecl(a, IntegerType, UnExpr(-, StringLit(a)))
+	VarDecl(a, IntegerType, UnExpr(-, BooleanLit(True)))
+	VarDecl(a, IntegerType, UnExpr(-, ArrayLit([])))
+	VarDecl(a, IntegerType, UnExpr(-, FuncCall(a, [IntegerLit(1)])))
+])

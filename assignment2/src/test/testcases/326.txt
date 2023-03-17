@@ -1,0 +1,1 @@
+a:function auto (){a=1;a=1;}
