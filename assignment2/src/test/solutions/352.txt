@@ -1,0 +1,3 @@
+Program([
+	VarDecl(a, IntegerType, ArrayCell(a, [ArrayCell(a, [Id(a)]), ArrayCell(a, [ArrayCell(a, [Id(a), ArrayCell(a, [Id(a)])])])]))
+])

@@ -1,0 +1,3 @@
+Program([
+	VarDecl(c, FloatType, FuncCall(a, [FuncCall(a, [Id(a)]), FuncCall(a, [FuncCall(a, [Id(a)])]), FuncCall(a, [IntegerLit(1)])]))
+])

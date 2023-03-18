@@ -1,0 +1,1 @@
+a:function integer(){if(a==1) {} if(a==2) {} else {} if (a==3) {a=4;} else {a=5;}}

@@ -1,0 +1,1 @@
+a:integer = a(1);b:string = a(a,b,c,d,e,f,g,h,i,j,k);

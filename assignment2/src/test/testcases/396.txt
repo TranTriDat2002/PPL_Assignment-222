@@ -1,0 +1,1 @@
+a:function integer(){ a:integer = 1; if (a==1) a=1; b:float; b=2.3; do{a=a+b;}while(b>1); c = a+b; print(c);}

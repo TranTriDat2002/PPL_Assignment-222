@@ -1,0 +1,3 @@
+Program([
+	FuncDecl(a, IntegerType, [], None, BlockStmt([DoWhileStmt(BinExpr(==, Id(a), IntegerLit(1)), BlockStmt([ContinueStmt()]))]))
+])

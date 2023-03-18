@@ -1,0 +1,1 @@
+a:function integer(){a=(-(!(((((a::b)==c)||d)+e)*f))); b[1]=-!a::b==c||d+e*f;}

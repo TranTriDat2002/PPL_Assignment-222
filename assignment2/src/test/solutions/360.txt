@@ -1,0 +1,3 @@
+Program([
+	VarDecl(c, FloatType, ArrayLit([Id(a), ArrayLit([Id(b), Id(c), ArrayLit([Id(d), ArrayLit([ArrayLit([ArrayLit([])])])])])]))
+])

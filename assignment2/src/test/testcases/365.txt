@@ -1,0 +1,1 @@
+a:integer = !(3 + 5 * -2 / 4 == 1 || 2 >= 3) && "Hello"::"World" == "HelloWorld" && foo({1, 2, 3}, bar(4, 5, 6)) != true;

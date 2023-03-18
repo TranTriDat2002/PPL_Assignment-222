@@ -1,0 +1,4 @@
+Program([
+	VarDecl(a, IntegerType, FuncCall(a, [IntegerLit(1)]))
+	VarDecl(b, StringType, FuncCall(a, [Id(a), Id(b), Id(c), Id(d), Id(e), Id(f), Id(g), Id(h), Id(i), Id(j), Id(k)]))
+])

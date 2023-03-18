@@ -1,0 +1,1 @@
+a:function integer(){do {} while (-!a::b==c||d+e*f);}

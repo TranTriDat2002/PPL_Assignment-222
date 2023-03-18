@@ -155,10 +155,12 @@ class ASTGeneration(MT22Visitor):
         return Id(ctx.ID().getText())
         
     def visitFunccall(self, ctx:MT22Parser.FunccallContext):
-        return FuncCall(ctx.ID().getText(),self.visit(ctx.arglist()))
-        
+        if ctx.arglist():
+            return FuncCall(ctx.ID().getText(),self.visit(ctx.arglist()))
+        return FuncCall(ctx.ID().getText(), [])
+
     def visitArglist(self, ctx:MT22Parser.ArglistContext):
-        return [self.visit(ctx.arg())] if ctx.getChildCount()==1 else [self.visit(ctx.arg())] + self.visit(arglist())
+        return [self.visit(ctx.arg())] if ctx.getChildCount()==1 else [self.visit(ctx.arg())] + self.visit(ctx.arglist())
         
     def visitArg(self, ctx:MT22Parser.ArgContext):
         return self.visit(ctx.expr())
@@ -185,7 +187,7 @@ class ASTGeneration(MT22Visitor):
         return IfStmt(self.visit(ctx.expr()), self.visit(ctx.stmt(0)))
         
     def visitForstmt(self, ctx:MT22Parser.ForstmtContext):
-        return ForStmt(AssignStmt(Id(ctx.ID().getText()), self.visit(ctx.expr(0))), self.visit(ctx.expr(1)),self.visit(ctx.expr(2)), self.visit(ctx.stmt()))
+        return ForStmt(self.visit(ctx.assignstmt()), self.visit(ctx.expr(0)),self.visit(ctx.expr(1)), self.visit(ctx.stmt()))
         
     def visitWhilestmt(self, ctx:MT22Parser.WhilestmtContext):
         return WhileStmt(self.visit(ctx.expr()),self.visit(ctx.stmt()))
@@ -213,8 +215,15 @@ class ASTGeneration(MT22Visitor):
         
     def visitBlockBody(self, ctx:MT22Parser.BlockBodyContext):
         if ctx.blockBody():
-            return [self.visit(ctx.getChild(0))] + self.visit(ctx.blockBody())
-        return [self.visit(ctx.getChild(0))]
+            if ctx.vardecl(): 
+                x = [i for i in self.visit(ctx.vardecl())]
+                return x + self.visit(ctx.blockBody())
+            if ctx.stmt():
+                return [self.visit(ctx.stmt())] + self.visit(ctx.blockBody())
+        if ctx.vardecl(): 
+            return [i for i in self.visit(ctx.vardecl())]
+        if ctx.stmt():
+            return [self.visit(ctx.stmt())]
         
     def visitAtomictype(self, ctx:MT22Parser.AtomictypeContext):
         if ctx.BOOLTYPE(): return BooleanType()

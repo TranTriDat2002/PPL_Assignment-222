@@ -1,0 +1,1 @@
+a:function integer(){do {break;} while (a==1);}

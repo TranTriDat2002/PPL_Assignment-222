@@ -65,7 +65,7 @@ multiplyingexpr: multiplyingexpr (MULTIPLYOP|DIVIDEOP|MODULOOP) logical_negateex
 logical_negateexpr: NEGATEOP logical_negateexpr | signexpr; 
 
 // Sign minus//
-signexpr: MINUSOP signexpr | indexopexpr;
+signexpr: MINUSOP signexpr | MINUSOP logical_negateexpr | indexopexpr ;
 
 // Index operator //
 indexopexpr: indexop | operand;
@@ -109,7 +109,8 @@ indexop:ID LSQB exprlist RSQB;
 ifstmt: 'if' LB expr RB stmt ('else' stmt)?;
 
 // For statement //
-forstmt: 'for' LB ID EQUAL expr COMMA expr COMMA expr RB stmt;
+// forstmt: 'for' LB ID EQUAL expr COMMA expr COMMA expr RB stmt;
+forstmt: 'for' LB assignstmt COMMA expr COMMA expr RB stmt;
 
 // While statement //
 whilestmt: 'while' LB expr RB stmt;
