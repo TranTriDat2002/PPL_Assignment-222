@@ -1,0 +1,43 @@
+Program(decls: List[Decl])
+
+Decl
+    FuncDecl(name: str, return_type: Type, params: List[ParamDecl], inherit: str or None, body: BlockStmt)
+    ParamDecl(name: str, typ: Type, out: bool = False, inherit: bool = False)
+    VarDecl(name: str, typ: Type, init: Expr or None = None)
+
+Stmt
+    CallStmt(name: str, args: List[Expr])
+    ReturnStmt(expr: Expr or None = None)
+    ContinueStmt()
+    BreakStmt()
+    DoWhileStmt(cond: Expr, stmt: BlockStmt)
+    WhileStmt(cond: Expr, stmt: Stmt)
+    ForStmt(init: AssignStmt, cond: Expr, upd: Expr, stmt: Stmt)
+    IfStmt(cond: Expr, tstmt: Stmt, fstmt: Stmt or None = None)
+    BlockStmt(body: List[Stmt or VarDecl])
+    AssignStmt(lhs: LHS, rhs: Expr)
+
+    Expr
+        ArrayLit(explist: List[Expr]) => Return ArrayType
+        BooleanLit(val: bool) => Return BooleanType
+        StringLit(val: str) => Return StringType
+        FloatLit(val: float) => Return FloatType
+        IntegerLit(val: int) => Return IntegerType
+        UnExpr(op: str, val: Expr) => Return AtomicType, ArrayType??????
+        BinExpr(op: str, left: Expr, right: Expr) => Return AtomicType, ArrayType??????      
+        FuncCall(name: str, args: List[Expr]) => Return AtomicType, AutoType
+
+        LHS
+            ArrayCell(name: str, cell: List[Expr]) => Return AtomicType, ArrayType
+            Id(name: str) => Return AtomicType, ArrayType
+
+Type
+    VoidType()
+    AutoType()
+    ArrayType(dimensions: List[int], typ: AtomicType)
+
+    AtomicType
+        StringType()
+        BooleanType()
+        FloatType()
+        IntegerType()

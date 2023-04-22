@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./assignment3/src/main/mt22/checker"
+    ]
+}
