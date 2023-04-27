@@ -1,0 +1,8 @@
+
+            main: function void(){}
+            foo1: function boolean(inherit a:integer, inherit b: float, c: boolean, d:string, inherit e: auto, f:array[1,2] of float){}
+            foo9: function string (g:array[1] of integer, h:array[2]of float, i:array[2,3]of string) inherit foo1{
+                super(1152,2.3,true,"abc",false,{{a},{2}});
+                e = false;
+            }
+        

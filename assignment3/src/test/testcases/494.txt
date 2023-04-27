@@ -1,0 +1,6 @@
+
+            main: function void(){}
+            c: function integer (a:auto){
+                a = a<1.2;
+            }
+        

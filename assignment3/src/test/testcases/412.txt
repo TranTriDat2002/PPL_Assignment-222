@@ -1,0 +1,6 @@
+
+            main: function void (){}
+            a:float = 1;
+            b:integer = 2;
+            c:float = b;
+        

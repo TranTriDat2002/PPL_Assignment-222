@@ -1,0 +1,4 @@
+
+            main: function void(){}
+            a: function integer (inherit a: integer) inherit a {super(1);}
+        

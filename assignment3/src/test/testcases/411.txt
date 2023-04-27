@@ -1,0 +1,8 @@
+
+            main: function void (){}
+            foo: function void(a:auto){
+                b:float = a;
+                c:string = foo1();
+            }
+            foo1: function auto(){}
+        

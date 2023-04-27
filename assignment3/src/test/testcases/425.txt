@@ -1,0 +1,6 @@
+
+            main: function void(){}
+            foo1: function boolean(a:integer) inherit foo9{super(1);}
+            foo6: function integer (a:integer) {}
+            foo9: function auto (a:integer) inherit foo6{super(1);}
+        

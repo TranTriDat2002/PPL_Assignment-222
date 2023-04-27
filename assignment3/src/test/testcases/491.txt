@@ -1,0 +1,7 @@
+
+            main: function void(){}
+            c: function integer () inherit notExist {
+                preventDefault();
+                super(1,2,3);
+            }
+        

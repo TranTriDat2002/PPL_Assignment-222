@@ -1,0 +1,13 @@
+
+            main: function void(){}
+            foo1: function boolean(inherit a:integer, inherit b: float, c: boolean, d:string, inherit e: auto, f:array[1,2] of float){}
+            foo9: function string (g:array[1] of integer, h:array[2]of float, i:array[2,3]of string) inherit foo1{
+                super(1152,2.3,true,"abc",false,{{1,2}});
+                e = false;
+            }
+            foo10: function float(z:float) inherit foo9{
+                super({1},{2,3},{{"a","b","c"},{"1","2","3"}});
+                preventDefault();
+                z = super({1},{2,3},{{"a","b","c"},{"1","2","3"}});
+            }
+        

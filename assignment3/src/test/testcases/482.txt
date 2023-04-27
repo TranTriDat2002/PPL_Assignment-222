@@ -1,0 +1,13 @@
+
+            main: function void(){
+                return;
+            }
+            a: array[1,2,3] of integer;
+            
+            foo: function integer(h:auto){
+                for (h=1, h<10, h=h+1)
+                {
+                    return 1;
+                }
+            }
+        

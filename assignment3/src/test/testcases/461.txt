@@ -1,0 +1,14 @@
+
+            main: function void(){
+                return;
+                return;
+                return;
+                return;
+            }
+            foo: function string(){
+                return "a";
+                return "b";
+                return "c";
+                return "d";
+            }
+        

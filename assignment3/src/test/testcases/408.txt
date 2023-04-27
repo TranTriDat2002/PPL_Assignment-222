@@ -1,0 +1,8 @@
+
+            a:integer;
+            main: function void (){
+            }        
+            foo: function float(){
+                foo: integer;
+            }
+        

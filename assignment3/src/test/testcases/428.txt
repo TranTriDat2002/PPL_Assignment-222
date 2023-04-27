@@ -1,0 +1,12 @@
+
+            main: function void(){}
+            foo1: function integer(){}
+            foo9: function string (inherit a:integer) inherit foo1{
+                x :float = super();
+                super();
+                preventDefault();
+                super();
+                y: integer;
+                y = super();
+            }
+        

@@ -1,0 +1,8 @@
+
+            main: function void(){}
+            a: function integer(){
+                return 1;
+                return "abc"; // Don't check with int
+                return zzz(); // A not exist => Error?
+            }
+        

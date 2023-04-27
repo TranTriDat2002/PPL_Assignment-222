@@ -1,0 +1,51 @@
+
+            main: function void(){
+                return;
+            }
+            foo: function void(){
+                a: integer = 1;
+                b: float = 2.3;
+                c:auto = a+a;
+                d:auto = b/b;
+                e:auto = a-b;
+                f:auto = b*a;
+                //c = d;
+            }
+            foo1: function void(){
+                x: string = "abc";
+                y: auto = x::"123";
+            }
+            foo2: function void(){
+                a : boolean = true;
+                b : boolean = false;
+                c: auto = a||b;
+                d: auto = c&&a&&b;
+            }
+            foo5: function void(a:auto, b:auto, c:auto, d:auto, e:auto, f:auto){
+                x:integer;
+                y:float;
+                a = x < x;
+                c = b <= x;
+                d = y > x;
+                f = y >= e;
+                g: integer = b;
+                h: float = e;
+                //d = f;
+                //a = c;
+            }
+            foo3: function void(inherit a:auto, inherit z:auto){
+                b: integer;
+                c: boolean;
+                d: auto = a == b;
+                y: auto = z != b;
+                d = y;
+            }
+            foo6: function void(b:auto, c:auto){
+                a:integer;
+                b = a%c;
+            }
+            foo4: function void() inherit foo3{
+                super(true, false);
+            }
+            
+        

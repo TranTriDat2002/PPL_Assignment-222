@@ -1,0 +1,11 @@
+
+            main: function void(){
+                return;
+            }
+            foo:function void(){
+                a:integer = readInteger();
+                b:boolean = readBoolean();
+                c:float = readFloat();
+                d:string = readString();
+            }
+        

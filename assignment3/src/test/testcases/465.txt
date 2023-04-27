@@ -1,0 +1,8 @@
+
+            main: function void(){
+                return;
+                return abc();
+                x :integer;
+                x = true;
+            }
+        

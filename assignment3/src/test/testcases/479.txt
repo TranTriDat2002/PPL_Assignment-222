@@ -1,0 +1,10 @@
+
+            main: function void(){
+                
+            }
+            a: array[1,2,3] of integer;
+            foo: function void(){
+                a[99,99,99] = 1;
+                a[11,2] = {1,2,3};
+            }
+        

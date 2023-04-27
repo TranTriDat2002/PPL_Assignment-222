@@ -1,0 +1,17 @@
+
+            main: function void(){
+                return;
+            }
+            foo: function void(h:auto){
+            a:array[1,2,3] of integer;
+            x:array[3]of float = a[99,99];
+            y:array[2,3] of integer = a[-1];
+            z:integer = a[0,0,0];
+            a1 : auto = a[0,0];
+            a2 : auto = a[0];
+            a3: auto = a[0,0,0];
+            a3 = z;
+            b:integer = a[h,0,0];
+            h = "abc";
+            }
+        

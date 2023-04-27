@@ -1,0 +1,9 @@
+
+            main: function void(){
+                return;
+            }
+            foo2: function array[1,2,3] of float (x:array[3]of integer,y:array[3]of integer){
+               return {{x,y}};
+               z:array[1,2,3] of integer = {{y,x}};
+            }
+        

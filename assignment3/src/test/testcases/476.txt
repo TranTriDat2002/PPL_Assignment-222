@@ -1,0 +1,9 @@
+
+            main: function void(){
+                return;
+            }
+            foo:function void(a:auto, b:auto){
+                b = !b;
+                a = -1;
+            }
+        

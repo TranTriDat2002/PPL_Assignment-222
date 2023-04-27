@@ -1,0 +1,7 @@
+
+            main: function void(){}
+            foo: function boolean(){}
+            foo1: function integer () inherit foo{}
+            foo2: function float (a:integer){}
+            foo3: function string () inherit foo2{} 
+        

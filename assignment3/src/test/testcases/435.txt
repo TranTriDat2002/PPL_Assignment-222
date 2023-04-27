@@ -1,0 +1,8 @@
+
+            main: function void(){}
+            foo1: function boolean(inherit a:auto, inherit b: auto, c: auto, d:auto, e:auto){}
+            foo9: function string () inherit foo1{
+                super(1152,2.3,true,"abc",{{1,2}});
+                a = "abc";
+            }
+        

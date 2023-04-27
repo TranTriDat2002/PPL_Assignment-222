@@ -1,0 +1,15 @@
+
+            main: function void(){
+                return;
+            }
+            foo1: function void(foo1:integer) { }
+            foo2: function array[1,2,3] of float() inherit foo1{
+                super(1);
+               foo1: integer;
+               foo2: float;
+            }
+            x : float = foo2();
+            foo3: function integer(foo1:integer, foo3:float) inherit foo1{
+                super(1);
+            }
+        

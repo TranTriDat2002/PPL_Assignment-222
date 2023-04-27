@@ -1,0 +1,6 @@
+
+            main: function void(){}
+            foo: function boolean(){}
+            foo5 : integer = 1;
+            foo1: function integer () inherit foo5{}
+        

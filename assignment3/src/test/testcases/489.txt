@@ -1,0 +1,8 @@
+
+            main: function void(){}
+            e: function integer() inherit d{preventDefault();}
+            d: function integer (dvar: integer) inherit c{super(1); avar = bvar;}
+            c: function integer (inherit cvar: integer) inherit b{super(1);}
+            b: function integer(inherit bvar: integer) inherit a{super(1);}
+            a: function integer(inherit avar: integer){}
+        

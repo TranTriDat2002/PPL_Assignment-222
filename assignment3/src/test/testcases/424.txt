@@ -1,0 +1,9 @@
+
+            main: function void(){}
+            foo2: function void() inherit main{}
+            foo1: function boolean() inherit foo9{}
+            foo6: function integer () inherit foo5{preventDefault();}
+            foo3 : function string () inherit foo2{}
+            foo9: function auto () inherit foo6{}
+            foo5: function string () inherit foo3 {}
+        

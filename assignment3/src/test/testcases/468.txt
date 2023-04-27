@@ -1,0 +1,9 @@
+
+            main: function void(){
+                return;
+            }
+            foo: function auto (x:integer, y:float){
+                y = foo(1,2);
+                return foo(1,2);
+            }
+        

@@ -1,0 +1,13 @@
+
+            main: function void(){
+                return;
+                return 1;
+                return true;
+                return "abc";
+            }
+            foo: function string(){
+                return;
+                return "1";
+                return 1;
+            }
+        

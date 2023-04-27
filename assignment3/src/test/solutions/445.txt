@@ -1,0 +1,1 @@
+Type mismatch in statement: AssignStmt(Id(z), FuncCall(super, [ArrayLit([IntegerLit(1)]), ArrayLit([IntegerLit(2), IntegerLit(3)]), ArrayLit([ArrayLit([StringLit(a), StringLit(b), StringLit(c)]), ArrayLit([StringLit(1), StringLit(2), StringLit(3)])])]))

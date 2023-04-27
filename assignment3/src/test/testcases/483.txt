@@ -1,0 +1,12 @@
+
+            main: function void(){
+                return;
+            }
+            a: array[1,2,3] of integer;
+            x:integer = 1;
+            while (x<10)
+            {
+                b: float;
+                return b;
+            }
+        

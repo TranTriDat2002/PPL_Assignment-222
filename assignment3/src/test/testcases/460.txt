@@ -1,0 +1,9 @@
+
+            main: function void(){}
+            foo: function void(inherit a:integer, inherit b:float){}
+            foo1: function void(inherit c:float) inherit foo{super(1,2.3);}
+            foo2: function void(d:integer, e:integer) inherit foo1{
+                super(4.5);
+                a = 1; b = 2.3; c = 5.6; d = 7; e = 8;
+            }
+        

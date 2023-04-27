@@ -1,0 +1,14 @@
+
+            main: function void(){
+                return;
+            }
+            a: array[1,2,3] of integer;
+            
+            foo: function integer(h:auto){
+                
+                if (h == "1"){ 
+                    h = false;}
+                
+                b : boolean = foo1();
+            }
+        

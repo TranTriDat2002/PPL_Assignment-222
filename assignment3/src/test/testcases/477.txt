@@ -1,0 +1,11 @@
+
+            main: function void(){
+                return;
+            }
+            foo:function void(){
+                a : auto = {{1,1},{2,3}};
+                b : auto = {{{{{1}}}}};
+                c : auto = {{{{"123","456"},{"abc","def"}},{{"123","456"},{"abc","def"}}},{{{"123","456"},{"abc","def"}},{{"123","456"},{"abc","def"}}}};
+                d : auto = {{1,2},{4,5.6}};
+            }
+        

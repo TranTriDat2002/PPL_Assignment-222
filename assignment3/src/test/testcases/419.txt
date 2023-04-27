@@ -1,0 +1,5 @@
+
+            main: function void(){}
+            foo: function boolean(){}
+            foo1: function integer () inherit foo5{x:integer;}
+        

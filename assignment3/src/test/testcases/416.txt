@@ -1,0 +1,13 @@
+
+            main: function void (){}
+            a:integer;
+            a2 : integer = a;
+            b:float;
+            b2: float = a2;
+            c:boolean;
+            c2:boolean = c;
+            d:string;
+            d2:string = d;
+            e:array[1,2,3] of integer ;
+            f:array[1,2,3] of float = e;
+        

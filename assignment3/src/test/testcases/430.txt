@@ -1,0 +1,8 @@
+
+            main: function void(){}
+            foo9: function string (inherit a:integer) inherit main{
+                x :integer;
+                super();
+                preventDefault(1);
+            }
+        

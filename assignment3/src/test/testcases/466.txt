@@ -1,0 +1,10 @@
+
+            main: function void(){
+                return;
+            }
+            foo: function integer (x:auto){
+                return x;
+                x = 1;
+                x = "abc";
+            }
+        

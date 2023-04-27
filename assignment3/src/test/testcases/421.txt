@@ -1,0 +1,7 @@
+
+            main: function void(){}
+            foo: function boolean(){}
+            foo5 : function string()inherit foo100{}
+            foo1: function integer () inherit foo5{}
+            foo100: function auto () inherit foo999{}
+        

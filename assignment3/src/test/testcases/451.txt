@@ -1,0 +1,6 @@
+
+            main: function void(){}
+            foo: function void(inherit a:integer, inherit b:float) inherit asdfadsf{preventDefault();}
+            foo1: function void() inherit foo{preventDefault(); super(1,2.3);}
+            foo2: function void() inherit foo1{}
+        
